@@ -34,11 +34,11 @@ export default function Dropdown({
 	return (
 		<div
 			className={clsx(
-				'absolute mt-2 top-full shadow-md w-fit rounded-xl border border-slate-300 transition-all duration-300',
+				'absolute mt-2 z-10 bg-white top-full shadow-md w-fit rounded-xl border border-slate-300 transition-all duration-300',
 				position === 'left' ? 'left-0' : 'right-0',
 				{
-					'translate-y-0 pointer-events-auto opacity-100': show,
-					'-translate-y-4 opacity-0 pointer-events-none': !show,
+					'translate-y-0 opacity-100 visible': show,
+					'-translate-y-3 opacity-0 invisible': !show,
 				}
 			)}
 		>
