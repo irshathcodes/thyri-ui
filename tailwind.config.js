@@ -1,8 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ["./src/**/*.tsx"],
+	content: ['./src/**/*.tsx'],
 	theme: {
-		extend: {},
+		extend: {
+			animation: {
+				shimmer: 'shimmer 1.5s infinite',
+			},
+			keyframes: {
+				shimmer: {
+					'100%': {
+						transform: 'translateX(100%)',
+					},
+				},
+			},
+		},
 	},
 	plugins: [],
 };
