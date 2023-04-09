@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
-const links = ['accordion', 'dropdown'];
+const links = ['accordion', 'dropdown', 'skeleton'];
 
 export default function Home() {
 	return (
 		<div>
-			<ul className="p-4 md:max-w-3xl gap-4 flex mx-auto mt-12">
+			<ul className="p-4 md:max-w-3xl gap-4 flex flex-wrap mx-auto mt-12">
 				{links.map((link) => {
 					return (
 						<li key={link}>
