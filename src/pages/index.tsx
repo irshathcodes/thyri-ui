@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const links = ['accordion', 'dropdown', 'skeleton'];
+const links = ['accordion', 'dropdown', 'skeleton', 'sidebar'];
 
 export default function Home() {
 	return (
