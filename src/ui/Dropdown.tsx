@@ -34,37 +34,39 @@ export default function Dropdown({
 	return (
 		<div
 			className={clsx(
-				'absolute mt-2 z-10 bg-white top-full shadow-md w-fit rounded-xl border border-slate-300 transition-all duration-300',
+				'absolute grid mt-2 z-10 bg-white top-full transition-all duration-300 overflow-hidden ease-in-out',
 				position === 'left' ? 'left-0' : 'right-0',
 				{
-					'translate-y-0 opacity-100 visible': show,
-					'-translate-y-3 opacity-0 invisible': !show,
+					'grid-rows-[0fr] opacity-0': !show,
+					'grid-rows-[1fr] opacity-100': show,
 				}
 			)}
 		>
-			<ul className="w-fit divide-y-2">
-				{options.map(({ id, label, OptionComponent }) => {
-					return (
-						<li key={id}>
-							<button
-								onClick={() => {
-									onChange?.(id);
-									setShow(false);
-								}}
-								className={clsx('px-4 py-2 w-full', {
-									'hover:bg-gray-200 focus:ring-1': !OptionComponent,
-								})}
-							>
-								{OptionComponent ? (
-									OptionComponent(label, id)
-								) : (
-									<DefaultOption label={label} />
-								)}
-							</button>
-						</li>
-					);
-				})}
-			</ul>
+			<div className="overflow-hidden">
+				<ul className="max-w-sm divide-y-2 overflow-hidden shadow-md rounded border border-slate-300">
+					{options.map(({ id, label, OptionComponent }) => {
+						return (
+							<li key={id}>
+								<button
+									onClick={() => {
+										onChange?.(id);
+										setShow(false);
+									}}
+									className={clsx('px-4 py-2 w-full', {
+										'hover:bg-gray-200 focus:ring-1': !OptionComponent,
+									})}
+								>
+									{OptionComponent ? (
+										OptionComponent(label, id)
+									) : (
+										<DefaultOption label={label} />
+									)}
+								</button>
+							</li>
+						);
+					})}
+				</ul>
+			</div>
 		</div>
 	);
 }

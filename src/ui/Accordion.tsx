@@ -51,16 +51,16 @@ function Accordion({
 					<PlusIcon className="w-6 h-6" />
 				)}
 			</button>
-			<p
-				className={cn(
-					'text-slate-600 transition-all duration-300 h-0 translate-y-0 px-4 overflow-hidden',
-					{
-						'h-auto py-4 translate-y-100': show,
-					}
-				)}
+			<div
+				className={cn('grid transition-[grid-template-rows] duration-300', {
+					'grid-rows-[1fr]': show,
+					'grid-rows-[0fr]': !show,
+				})}
 			>
-				{info}
-			</p>
+				<div className="overflow-hidden">
+					<p className={cn('text-slate-600 p-4')}>{info}</p>
+				</div>
+			</div>
 		</li>
 	);
 }
